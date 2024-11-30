@@ -1,0 +1,33 @@
+ Пояснення
+ProposalListCreateAPIView:
+GET /api/proposals/ — отримати всі пропозиції для залогіненого фрилансера.
+POST /api/proposals/ — створити нову пропозицію (автором автоматично стає поточний користувач).
+ProposalRetrieveUpdateDeleteAPIView:
+GET /api/proposals/<pk>/ — отримати конкретну пропозицію.
+PUT /api/proposals/<pk>/ — оновити пропозицію.
+DELETE /api/proposals/<pk>/ — видалити пропозицію.
+PaymentListCreateAPIView:
+GET /api/payments/ — отримати всі платежі для залогіненого клієнта.
+POST /api/payments/ — створити новий платіж.
+PaymentRetrieveUpdateDeleteAPIView:
+GET /api/payments/<pk>/ — отримати конкретний платіж.
+PUT /api/payments/<pk>/ — оновити платіж.
+DELETE /api/payments/<pk>/ — видалити платіж.
+
+{
+    "username": "user1",
+    "email": "email1@email.ru",
+    "password": "password1"
+}
+
+"project": 1,
+    "freelancer": 2,
+    "bid_amount": 12,
+    "cover_letter": "lorem ipsum dolor sir amet"
+
+{
+    "title":"aaa",
+    "description":"aaaooo",
+    "budget":12,
+    "client":1
+}

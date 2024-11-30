@@ -5,9 +5,11 @@ from rest_framework.views import APIView
 from .models import Project
 from .serializers import ProjectSerializer
 from django.shortcuts import get_object_or_404
+from rest_framework.permissions import IsAuthenticated
 
 class ProjectListCreateAPIView(APIView):
     # GET: Отримати список всіх проектів
+    permission_classes = [IsAuthenticated]  # Тільки залогінені користувачі
     def get(self, request):
         projects = Project.objects.all()
         serializer = ProjectSerializer(projects, many=True)
@@ -23,6 +25,7 @@ class ProjectListCreateAPIView(APIView):
 
 
 class ProjectRetrieveUpdateDeleteAPIView(APIView):
+    permission_classes = [IsAuthenticated]  # Тільки залогінені користувачі
     # GET: Отримати проект за його ID
     def get(self, request, pk):
         project = get_object_or_404(Project, pk=pk)
@@ -40,6 +43,7 @@ class ProjectRetrieveUpdateDeleteAPIView(APIView):
 
     # DELETE: Видалити проект за його ID
     def delete(self, request, pk):
+        permission_classes = [IsAuthenticated]  # Тільки залогінені користувачі
         project = get_object_or_404(Project, pk=pk)
         project.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
